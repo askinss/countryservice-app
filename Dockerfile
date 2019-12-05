@@ -27,5 +27,5 @@ USER coapp
 EXPOSE 5000
 
 #command
-CMD ["gunicorn", "--b", "127.0.0.1:5000", "wsgi:app"]
+CMD ["gunicorn", "-b", "127.0.0.1:5000", "wsgi:app"]
 #CMD ["python", "app.py"]

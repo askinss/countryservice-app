@@ -2,10 +2,10 @@
 FROM python:3.8.0-alpine
 
 #Add User
-RUN adduser -D airapp
+RUN adduser -D coapp
 
 # set work directory
-WORKDIR /airapp
+WORKDIR /coapp
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -17,11 +17,11 @@ COPY ./requirements.txt /airapp/requirements.txt
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . /airapp/
+COPY . /cpapp
 
-RUN chown -R airapp:airapp /airapp
+RUN chown -R coapp:coapp /coapp
 
-USER airapp
+USER coapp
 
 #Port
 EXPOSE 5000

@@ -24,8 +24,8 @@ RUN chown -R coapp:coapp /coapp
 USER coapp
 
 #Port
-EXPOSE 5000
+EXPOSE 5001 8083
 
 #command
-CMD ["gunicorn", "-b", "127.0.0.1:5000", "wsgi:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5001", "wsgi:app"]
 #CMD ["python", "app.py"]

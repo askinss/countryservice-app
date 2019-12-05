@@ -17,7 +17,7 @@ COPY ./requirements.txt /coapp/requirements.txt
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . /cpapp
+COPY . /coapp
 
 RUN chown -R coapp:coapp /coapp
 

@@ -11,12 +11,12 @@ class CounstryServiceTest(unittest.TestCase):
 
     def test_countries(self):
         response = self.app.get('/countries', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         # To test unauthorized
 
     def test_countries_query(self):
         response = self.app.get('/countries/NL', follow_redirects=True)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 401)
         self.assertTrue(response.content_type == 'application/json')
 
 

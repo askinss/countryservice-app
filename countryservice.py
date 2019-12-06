@@ -59,16 +59,16 @@ def airports():
 
 @app.route('/countries/<query>',  methods=['GET'])
 #Ensure no unauthorised access to URL
-#@jwt_required()
+@jwt_required()
 def country_by_iso_code(query):
     try:
-        ciso = requests.get("http://0.0.0.0:8081/countries"/{}.format(query), timeout=5).json()
-        print(ciso)
+        ciso = requests.get("http://0.0.0.0:8081/countries/{}".format(query), timeout=5)
+        
     except (requests.RequestException, ValueError):
         return None
 
 
-    return ciso
+    return ciso.content
 
 @app.route('/health/live',  methods=['GET'])
 #Check if service is available
@@ -80,10 +80,8 @@ def healthlive():
     except Exception as e:
         return e
 
-    return {
+    return stat.content
 
-        stat.status_code
-    }
 
 @app.route('/health/ready',  methods=['GET'])
 # check the ready status of webservice
@@ -94,10 +92,7 @@ def healthready():
     except Exception as e:
         return e
 
-    return {
-        stat.status_code
-    }
-
+    return stat.content
 
 if __name__ == '__main__':
     app.run(debug=True)

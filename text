@@ -1,0 +1,9 @@
+def getValueOf(k, j, L):
+    r = []
+    for d in L:
+        if k=='iso_country':
+            for k, v in d.items():
+                #for j, w in d.items():
+                print({k: v})
+                r.append({k: v})
+            return r

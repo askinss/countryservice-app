@@ -1,18 +1,17 @@
 version: '3'
 services:
-  web:
+  app:
     build: .
     labels:
         - "traefik.enable=true"
         - "traefik.backend=countryservice-app"
         - "traefik.backend.healthcheck.path=/health"
         - "traefik.backend.healthcheck.interval=1s"
-        - "traefik.frontend.rule=Host:localhost"
+        - "traefik.frontend.rule=Host:0.0.0.0"
         - "traefik.port=5001"
     networks:
         - traefik
-    ports:
-      - "5001:5001"
+        
 networks:
     traefik:
         external:

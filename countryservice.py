@@ -13,6 +13,7 @@ URL = "http://0.0.0.0:8081/"
 app = Flask(__name__)
 # Secret key for token
 app.config['SECRET_KEY'] = 'luna-secret'
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 3000000000
 
 #Configure User to generate token
 class User(object):
@@ -87,7 +88,7 @@ def healthlive():
 # check the ready status of webservice
 def healthready():
     try:
-        stat = requests.get("http://0.0.0.0:8081/health/ready", timeout=5)
+        stat = requests.get("http://172.18.0.5:8081/health/ready", timeout=5)
         
     except Exception as e:
         return e

@@ -27,5 +27,5 @@ USER coapp
 EXPOSE 5001 8083
 
 #command
-CMD ["gunicorn", "-b", "0.0.0.0:5001", "wsgi:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:5001", "--reload", "wsgi:app"]
 #CMD ["python", "app.py"]
